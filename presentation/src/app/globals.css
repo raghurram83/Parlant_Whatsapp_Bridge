@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.skip-link {
+  @apply sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-full focus:bg-foreground focus:px-4 focus:py-2 focus:text-background;
+}
+
+.flip-shell {
+  perspective: 1200px;
+}
+
+.flip-inner {
+  transform-style: preserve-3d;
+}
+
+.flip-face {
+  backface-visibility: hidden;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+}
+
+::selection {
+  background: hsl(var(--primary) / 0.2);
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --background: 40 33% 97%;
+    --foreground: 222 17% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 17% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 17% 12%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 40 20% 94%;
+    --secondary-foreground: 222 17% 12%;
+    --muted: 40 18% 92%;
+    --muted-foreground: 220 9% 46%;
+    --accent: 221 83% 96%;
+    --accent-foreground: 221 83% 30%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 30 10% 85%;
+    --input: 30 10% 85%;
+    --ring: 221 83% 53%;
+    --radius: 0.8rem;
+  }
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background-image:
+      radial-gradient(circle at 15% 10%, hsl(221 83% 53% / 0.08), transparent 45%),
+      radial-gradient(circle at 85% 15%, hsl(222 17% 12% / 0.06), transparent 40%),
+      linear-gradient(120deg, hsl(0 0% 100% / 0.85), hsl(40 33% 97% / 0.95));
+    min-height: 100vh;
+  }
+}
